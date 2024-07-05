@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+}
+
+.nav_inicio {
+    margin-top: 0;
+    height: 10vh;
+    width: auto;
+}
+
+.nav_inicio ul {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: #194e9d;
+    list-style-type: none;
+}
+
+.nav_inicio li {
+    float: left;
+}
+
+.nav_inicio a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 20px;
+
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+.container_card{
+    padding-left: 10vw;
+    padding-right: 10vw;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: auto;
+}
+
+.card_presentacion {
+
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: #194e9d;
+    height: 20vh;
+
+
+}
+.card_tecnologias {
+    padding-top: 20px;
+    border-radius: 20px;
+    background-color: #194e9d;
+    height: 30vh;
+
+
+}
