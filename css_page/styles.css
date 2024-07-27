@@ -1,39 +1,250 @@
-body {
+* {
+    padding: 0;
     margin: 0;
-    background-color: #bbcbcb;
+}
+
+body {
+    width: auto;
+    position: relative;
+    padding-bottom: 3em;
+    min-height: 100vh;
 }
 
 .nav_inicio {
-    margin-top: 0;
-    height: 2vh;
-    width: auto;
-
-    li {
-        float: left;
-    }
+    background-color: #26597F;
 
     ul {
-        margin: 0px;
-        padding: 0px;
         overflow: hidden;
-        background-color: #0c3a5e;
-        list-style-type: none;
+        list-style: none;
+        display: flex;
+        width: 100%;
+        justify-content: end;
+
+        li:first-child {
+            margin-right: auto;
+        }
+
+        li {
+            height: 70px;
+
+            a {
+                height: 100%;
+                color: white;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                padding: 0 30px;
+
+
+            }
+
+            a:hover {
+                background-color: #214560;
+            }
+
+        }
+
+        .menu_button {
+            visibility: hidden;
+        }
+
+
     }
 
-    a {
-        color: white;
-        text-decoration: none;
-        display: block;
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 20vw;
+        z-index: 999;
+        background-color: rgba(38, 86, 126, 0.773);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        /*backdrop-filter: blur(10px);*/
+        li {
+            width: 100%;
+        }
+
+        a {
+            width: 100%;
+        }
+    }
+
+
+
+
+
+}
+
+.fila {
+    height: 50vh;
+    width: 100%;
+    /* filas (con el tamaño definido para cada una) / columnas (con el tamaño establecido)
+    ej (los parentesis no se ocupan dentro): 10px (1era y unica fila de tamaño 10px) / 40px (1era columna con tamaño 40px) 10px (2da columna con tamaño 10px)
+ ej normal : 10px / 1fr
+    */
+    grid-template-rows: 1fr;
+    grid-template-columns: 100% 0px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    transition: grid-template 1s;
+    /* las transiciones sirver para darle un tiempo para que se aplique una propiedad como en este caso grid-template*/
+}
+
+/*nth-child -> corresponde al elemento especifico que posee la el atributo antes del : , que corresponderia a la clase fila*/
+.fila:nth-child(1) {
+    background-color: #3d588f;
+
+    .contenido {
+        background-color: #476195;
+    }
+}
+
+.fila:nth-child(2) {
+    background-color: #4a9b78;
+}
+
+.fila:nth-child(3) {
+    background-color: #3f8d8d;
+}
+
+
+.fila:hover {
+    grid-template-columns: 20% 80%;
+
+    .contenido {
+        visibility: visible;
+    }
+}
+
+.fila p {
+    background-color: #000000;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    font-size: clamp(1.1rem, 5vmin, 2.8rem);
+    transition: opacity 300ms;
+}
+
+/*efectos con hover*/
+
+main:has(.fila:first-child:hover) .fila:not(:first-child) .contenido,
+main:has(.fila:nth-child(2):hover) .fila:not(:nth-child(2)) .contenido,
+main:has(.fila:nth-child(3):hover) .fila:not(:nth-child(3)) .contenido {
+    opacity: 0;
+}
+
+main:has(.fila:first-child:hover) .fila:not(:first-child),
+main:has(.fila:nth-child(2):hover) .fila:not(:nth-child(2)),
+main:has(.fila:nth-child(3):hover) .fila:not(:nth-child(3)) {
+
+    filter: grayscale(10%) brightness(250%) contrast(30%);
+}
+
+
+.contenido {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.perfil {
+    height: 92vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1f;
+    grid-template-rows: 1f 1f;
+    grid-template-areas: "foto" "boton";
+    background-color: #3F78A3;
+
+}
+
+.portada {
+
+    height: 50%;
+    width: auto;
+
+    grid-area: foto;
+    margin-left: auto;
+    margin-right: auto;
+
+    .texto_portada {
         text-align: center;
-        padding: 30px;
-
+        color: #ffffff;
+        width: 300px;
     }
 
+    .foto {
+        border-radius: 50%;
+        height: 300px;
+        width: 300px;
+
+    }
+}
+
+.boton_seccion {
+    height: 50%;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    grid-area: boton;
+    .boton {
+        background-color: #214560;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        border: 2px solid #000000;
+    }
+}
+
+.boton:hover {
+    background-color: #274e6b;
 }
 
 
 
 
+footer {
+    background-color: #26597F;
+    position: absolute;
+    height: 8vh;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    text-decoration: none;
+
+    #copyright {
+        color: white;
+    }
+
+    div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    div a.link_interes {
+        color: white;
+    }
+
+    div.interes:hover {
+        background-color: #214560;
+    }
+
+    div.interes {
+        justify-content: center;
+        width: 60px;
+    }
+
+
+}
 
 .poppins-extrabold {
     font-family: "Poppins", sans-serif;
@@ -41,31 +252,26 @@ body {
     font-style: normal;
 }
 
-.container_card {
-    margin: 0px;
-    padding-top: 0px;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    height: 100vh;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: auto;
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
 
-    .card_presentacion {
-        background-color: #639AB4;
-        margin-bottom: 20px;
-        border-radius: 20px;
-        height: 30vh;
-        box-shadow: 7px 6px 5px 0px #7B8C8C;
+@media (max-width: 900px) {
+    body {
+        p {
+            font-size: 15px;
+        }
+
     }
 
-    .card_tecnologias {
-        padding-top: 20px;
-        border-radius: 20px;
-        background-color: #639AB4;
-        height: 30vh;
-        box-shadow: 7px 6px 5px 0px #7B8C8C;
+    .sidebar {
+        min-width: 100%;
     }
+
+    #foto {
+        width: 60%;
+    }
+
 }
