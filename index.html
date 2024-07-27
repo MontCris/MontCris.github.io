@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cristian Montiel Page</title>
+    <link rel="icon" href="img/favicon-32x32.png" type="image/x-icon">
+    <title>Cristian Montiel</title>
     <link rel="stylesheet" href="css_page/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,23 +15,108 @@
 </head>
 
 <body>
-    <nav class="nav_inicio">
-        <ul class="poppins-extrabold">
+    <nav class="nav_inicio poppins-extrabold ">
+        <ul class="nav-normal">
             <li><a href="">MontCris</a></li>
-            <li><a href="">Sobre Mi</a></li>
+
+            <li>
+                <a onclick="mostrar_sidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="24px"
+                        fill="#FFFFFF">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg>
+                </a>
+            </li>
+
+        </ul>
+        <ul class="sidebar">
+            <li>
+                <a onclick="esconder_sidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#FFFFFF">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg>
+                </a>
+            </li>
+            <li><a href="#sobremi">Sobre Mi</a></li>
             <li><a href="">Lenguajes</a></li>
+            <li><a href="">Creaciones</a></li>
+            <li><a href="">Contacto</a></li>
         </ul>
 
+
     </nav>
-    <div class="container_card">
-        <div class="card_presentacion">
+    <div class="perfil">
+        <div class="portada">
+            <div>
+                <img class="foto" src="img/this-rockin-dog-is-a-little-sketchy.jpg" alt="foto">
+            </div>
+            <div class="poppins-extrabold">
+                <p class="texto_portada">Cristian Montiel</p>
+                
+            </div>
 
         </div>
-        <div class="card_tecnologias">
+
+        <div class="boton_seccion">
+            <button class="boton">
+                <svg xmlns="http://www.w3.org/2000/svg" height="44px" viewBox="0 -960 960 960" width="44px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+            </button>
 
         </div>
-
     </div>
+    <main id="grid">
+        <div class="fila" id="sobremi">
+            <p class="titulo_tarjeta">Sobre Mi</p>
+            <div class="contenido">
+                Hola me llamo cristian
+            </div>
+        </div>
+        <div class="fila" id="experiencia">
+            <p class="titulo_tarjeta">Experiencia</p>
+
+        </div>
+        <div class="fila" id="tecnologias">
+            <p class="titulo_tarjeta">Tecnologias</p>
+        </div>
+
+
+
+
+    </main>
+
+
+
+
+    <footer>
+        <div class="poppins-bold" id="copyright">
+            <p>© Hecho por Cristian Montiel | 2024 | Todos los derechos reservados </p>
+
+        </div>
+        <div class="interes">
+            <a class="link_interes" href="http://www.linkedin.com/in/cristian-montiel-catalan-54b1692a0"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                </svg></a>
+        </div>
+
+
+    </footer>
+
+    <script>
+        function mostrar_sidebar() {
+            const side_bar = document.querySelector('.sidebar');
+            side_bar.style.display = 'flex'
+        }
+        function esconder_sidebar() {
+            const side_bar = document.querySelector('.sidebar');
+            side_bar.style.display = 'none'
+        }
+    </script>
+
 
 </body>
 
