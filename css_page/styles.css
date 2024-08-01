@@ -3,8 +3,48 @@
     margin: 0;
     scroll-behavior: smooth;
 }
+
 #container-contacto {
     height: 70vh;
+}
+
+
+body.dark_mode_page {
+    p {
+        color: white;
+    }
+
+    #section_modes {
+        #light_mode_section {
+            background-color: gray;
+            border-radius: 5px 0px 0px 5px;
+        }
+
+        #dark_mode_section {
+            background: linear-gradient(155deg, rgba(22, 77, 206, 1) 37%, rgba(20, 39, 90, 1) 90%);
+            border-radius: 0px 5px 5px 0px;
+        }
+    }
+
+}
+
+body.light_mode_page {
+    p {
+        color: white;
+    }
+
+    #section_modes {
+        #light_mode_section {
+            border-radius: 5px 0px 0px 5px;
+            background: linear-gradient(155deg, rgba(247, 251, 0, 1) 30%, rgba(246, 151, 0, 1) 90%);
+        }
+
+        #dark_mode_section {
+            background-color: gray;
+            border-radius: 0px 5px 5px 0px;
+        }
+    }
+
 }
 
 
@@ -13,20 +53,26 @@ body {
     position: relative;
     padding-bottom: 3em;
     min-height: 100vh;
-    
-    --d: 2px; 
-   
-    background : radial-gradient(
-      circle at 
-         var(--d) 
-         var(--d), 
-         
-      #000 calc(var(--d) - 2px), 
-      #0000 var(--d)
-    ) 
-    0 0 / 40px 50px;
+
+
+
+    #section_modes {
+        display: flex;
+    }
+
+    #dark_mode_section {
+        float: left;
+    }
+
+    --d: 2px;
+
+    background: radial-gradient(circle at var(--d) var(--d),
+
+        #000 calc(var(--d) - 2px),
+        #0000 var(--d)) 0 0 / 40px 50px;
 
 }
+
 
 .nav_inicio {
     background-color: #26597F;
@@ -146,6 +192,7 @@ body {
     overflow-y: scroll;
     display: flex;
     align-items: center;
+
     p {
         text-align: center;
         width: 100%;
@@ -164,19 +211,20 @@ body {
 }
 
 
-.fila:hover{
+.fila:hover {
     grid-template-columns: 0% 100%;
 
     .contenido {
         visibility: visible;
     }
-    .titulo_tarjeta{
+
+    .titulo_tarjeta {
         opacity: 0;
     }
 }
 
 .fila p.titulo_tarjeta {
-    background-color: #000000;
+    /* text-shadow: 1px 1px 2px black; */
     color: white;
 
     font-size: clamp(1.1rem, 5vmin, 2.8rem);
@@ -234,6 +282,8 @@ main:has(.fila:nth-child(3):hover) .fila:not(:nth-child(3)) {
         border-radius: 50%;
         height: 300px;
         width: 300px;
+        box-shadow: 5px 14px 38px 0px rgba(0, 0, 0, 0.42);
+
 
     }
 }
