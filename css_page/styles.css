@@ -10,8 +10,52 @@
 
 
 body.dark_mode_page {
+    background-color: #1e293b;
+    footer {
+        background-color: #1e293b;
+    }
+    div.interes:hover {
+        background-color: #192334;
+    }
+
     p {
         color: white;
+
+    }
+
+    .texto_portada {
+        width: fit-content;
+    }
+
+    .boton {
+        background-color: #1e293b;
+    }
+    .boton:hover {
+        background-color: #192334;
+    }
+
+    .nav_inicio {
+        background-color: #1e293b;
+
+        .sidebar {
+            background-color: #111224c5;
+        }
+
+        a:hover {
+            background-color: #1e293bc5;
+        }
+
+    }
+    .fila:nth-child(1) {
+        background-color: #334155; /* Primer color */
+    }
+    
+    .fila:nth-child(2) {
+        background-color: #475569; /* Segundo color */
+    }
+    
+    .fila:nth-child(3) {
+        background-color: #64748b; /* Tercer color */
     }
 
     #section_modes {
@@ -28,10 +72,53 @@ body.dark_mode_page {
 
 }
 
+
+
 body.light_mode_page {
+    background-color: #26597F;
+
+    div.interes:hover {
+        background-color: #214560;
+    }
+    .boton:hover {
+        background-color: #274e6b;
+    }
+    .fila:nth-child(1) {
+        background-color: #3d588f;
+    
+        .contenido {
+            background-color: #476195;
+            display: grid;
+            grid-template-columns: 2% 96% 2%;
+            grid-template-rows: 5% 90% 5%;
+            grid-template-areas: ". . ." ". presentacion ." ". . .";
+    
+        }
+    }
+    .fila:nth-child(2) {
+        background-color: #4a9b78;
+    }
+    
+    .fila:nth-child(3) {
+        background-color: #3f8d8d;
+    }
+
     p {
         color: white;
     }
+
+    .texto_portada {
+        width: fit-content;
+    }
+
+    .nav_inicio {
+        background-color: #26597F;
+
+        .sidebar {
+            background-color: #26567ec5;
+        }
+    }
+
 
     #section_modes {
         #light_mode_section {
@@ -64,18 +151,12 @@ body {
         float: left;
     }
 
-    --d: 2px;
 
-    background: radial-gradient(circle at var(--d) var(--d),
-
-        #000 calc(var(--d) - 2px),
-        #0000 var(--d)) 0 0 / 40px 50px;
 
 }
 
 
 .nav_inicio {
-    background-color: #26597F;
     position: fixed;
     top: 0;
     width: 100vw;
@@ -127,7 +208,7 @@ body {
         height: 100vh;
         width: 20vw;
         z-index: 999;
-        background-color: rgba(38, 86, 126, 0.773);
+        background-color: #26567ec5;
         display: none;
         flex-direction: column;
         align-items: flex-start;
@@ -174,22 +255,12 @@ body {
 }
 
 /*nth-child -> corresponde al elemento especifico que posee la el atributo antes del : , que corresponderia a la clase fila*/
-.fila:nth-child(1) {
-    background-color: #3d588f;
 
-    .contenido {
-        background-color: #476195;
-        display: grid;
-        grid-template-columns: 2% 96% 2%;
-        grid-template-rows: 5% 90% 5%;
-        grid-template-areas: ". . ." ". presentacion ." ". . .";
 
-    }
-}
 
 #descripcion {
     grid-area: presentacion;
-    overflow-y: scroll;
+    overflow-y: auto;
     display: flex;
     align-items: center;
 
@@ -202,26 +273,83 @@ body {
     }
 }
 
-.fila:nth-child(2) {
-    background-color: #4a9b78;
-}
+.contenido {
+    overflow-y: auto;
+    display: flex;
+    justify-content: space-around;
 
-.fila:nth-child(3) {
-    background-color: #3f8d8d;
-}
-
-
-.fila:hover {
-    grid-template-columns: 0% 100%;
-
-    .contenido {
-        visibility: visible;
+    .card {
+        margin-top: 20px;
+        height: 200px;
+        width: 200px;
+        background-color: #ba431f;
     }
-
-    .titulo_tarjeta {
-        opacity: 0;
+    .tag-section {
+        display: flex;
+        flex-wrap: wrap;  /* Permite que los tags se distribuyan en varias filas */
+        gap: 10px;        /* Espacio entre los tags */
+        max-height: 100px; /* Limita el alto inicial para mostrar solo una fila */
+        overflow: hidden; /* Oculta los tags que no caben en la primera fila */
     }
+    
+    .tag {
+        flex: 0 1 30%; /* Cada tag ocupa un 30% del ancho del contenedor para permitir 3 tags por fila */
+        background-color: #3f8d8d;
+        color: white; /* Color del texto */
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        text-align: center;
+        margin: 5px;
+        box-sizing: border-box;
+    }
+    
+    .tag-section.expanded {
+        max-height: none; /* Cuando se expanda, mostrará todas las filas */
+    }
+    
+
 }
+
+
+
+
+.fila {
+    height: 50vh;
+    width: 100%;
+    grid-template-rows: 100%;
+    grid-template-columns: 100% 0%;
+    display: grid;
+    place-items: center;
+    transition: grid-template-columns 1s; /* Transición suave */
+}
+
+.contenido {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    transition: visibility 0.5s;
+}
+
+.fila.expanded {
+    grid-template-columns: 0% 100%; /* Expande la fila al hacer clic */
+}
+
+.fila.expanded .contenido {
+    visibility: visible; /* Muestra el contenido cuando la fila está expandida */
+}
+
+.fila .titulo_tarjeta {
+    color: white;
+    font-size: clamp(1.1rem, 5vmin, 2.8rem);
+    transition: opacity 700ms;
+}
+
+.fila.expanded .titulo_tarjeta {
+    opacity: 0; /* Oculta el título cuando la fila está expandida */
+}
+
 
 .fila p.titulo_tarjeta {
     /* text-shadow: 1px 1px 2px black; */
@@ -272,9 +400,8 @@ main:has(.fila:nth-child(3):hover) .fila:not(:nth-child(3)) {
 
 
     .texto_portada {
-        text-align: center;
-        color: #000000;
-        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .foto {
@@ -299,7 +426,6 @@ main:has(.fila:nth-child(3):hover) .fila:not(:nth-child(3)) {
     grid-area: boton;
 
     .boton {
-        background-color: #214560;
         border-radius: 50%;
         height: 100px;
         width: 100px;
@@ -309,13 +435,6 @@ main:has(.fila:nth-child(3):hover) .fila:not(:nth-child(3)) {
         border: 1px #000000;
     }
 }
-
-.boton:hover {
-    background-color: #274e6b;
-}
-
-
-
 
 footer {
     background-color: #26597F;
@@ -342,9 +461,7 @@ footer {
         color: white;
     }
 
-    div.interes:hover {
-        background-color: #214560;
-    }
+
 
     div.interes {
         justify-content: center;
@@ -372,6 +489,11 @@ footer {
             font-size: 15px;
         }
 
+    }
+    #descripcion {
+        p {
+            font-size: 20px;
+        }
     }
 
     .sidebar {

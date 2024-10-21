@@ -19,6 +19,32 @@
         <ul class="nav-normal">
             <li><a href="">MontCris</a></li>
 
+
+
+            <li>
+                <a onclick="mostrar_sidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="24px"
+                        fill="#FFFFFF">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg>
+                </a>
+            </li>
+
+        </ul>
+        <ul class="sidebar">
+            <li>
+                <a onclick="esconder_sidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#FFFFFF">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg>
+                </a>
+            </li>
+            <li><a href="#sobremi">Sobre Mi</a></li>
+            <li><a href="">Lenguajes</a></li>
+            <li><a href="">Creaciones</a></li>
+            <li><a href="#container-contacto">Contacto</a></li>
             <li>
                 <a id="toggle" onclick="toggle('light')">
                     <div id="section_modes">
@@ -46,31 +72,6 @@
                 </a>
 
             </li>
-
-            <li>
-                <a onclick="mostrar_sidebar()">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="24px"
-                        fill="#FFFFFF">
-                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-                    </svg>
-                </a>
-            </li>
-
-        </ul>
-        <ul class="sidebar">
-            <li>
-                <a onclick="esconder_sidebar()">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#FFFFFF">
-                        <path
-                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-                    </svg>
-                </a>
-            </li>
-            <li><a href="#sobremi">Sobre Mi</a></li>
-            <li><a href="">Lenguajes</a></li>
-            <li><a href="">Creaciones</a></li>
-            <li><a href="#container-contacto">Contacto</a></li>
         </ul>
 
 
@@ -95,7 +96,7 @@
             <div class="boton">
                 <a href="#grid">
                     <svg xmlns="http://www.w3.org/2000/svg" height="44px" viewBox="0 -960 960 960" width="44px"
-                        fill="#000000">
+                        fill="#FFFFFF">
                         <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
                     </svg>
                 </a>
@@ -126,12 +127,25 @@
             <div class="contenido">
                 <div class="card">
 
+
                 </div>
             </div>
 
         </div>
         <div class="fila" id="tecnologias">
             <p class="titulo_tarjeta">Tecnologias</p>
+            <div class="contenido">
+                <div id="tag_section">
+                    <div class="tag">Python</div>
+                    <div class="tag">Php</div>
+                    <div class="tag">Java</div>
+                    <div class="tag">JavaScript</div>
+                    <div class="tag">SQL</div>
+                    <div class="tag">Google Cloud</div>
+                    <div class="tag">Azure Cloud</div>
+                </div>
+
+            </div>
         </div>
 
 
@@ -167,12 +181,46 @@
 
 
     </footer>
+    <script>
+        function aplicarTemaSegunPreferencia() {
+            // Detecta si el usuario tiene preferencia por el modo oscuro
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark_mode_page');  // Aplica modo oscuro
+            } else {
+                document.body.classList.add('light_mode_page'); // Aplica modo claro
+            }
+        }
+        
+        // Llama a la función al cargar la página
+        window.onload = aplicarTemaSegunPreferencia;
+        
+        // Detecta cuando cambia la preferencia del usuario (por si lo cambian mientras navegan)
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            const nuevoTemaOscuro = e.matches;
+            if (nuevoTemaOscuro) {
+                document.body.classList.remove('light_mode_page');
+                document.body.classList.add('dark_mode_page');
+            } else {
+                document.body.classList.remove('dark_mode_page');
+                document.body.classList.add('light_mode_page');
+            }
+        });
+        </script>
+        
+    <script>
+        document.querySelectorAll('.fila').forEach(fila => {
+            fila.addEventListener('click', () => {
+                fila.classList.toggle('expanded');  // Alterna la clase "expanded" al hacer clic
+            });
+        });
+    </script>
+
 
     <script>
         const dark_mode = document.getElementById("toggle_dark_mode");
-        
+
         const ligth_mode = document.getElementById("toggle_light_mode");
-        
+
 
         function toggle(modo) {
             var page = document.body;
@@ -181,18 +229,18 @@
                 case "light":
                     page.setAttribute("class", "dark_mode_page");
                     dark_mode.setAttribute("fill", "#7a7a93") //on
-                    
+
                     ligth_mode.setAttribute("fill", "#000000") //off
-                    
+
                     button_toggle.setAttribute("onclick", "toggle('dark')");
                     break;
 
                 case "dark":
                     page.setAttribute("class", "light_mode_page");
                     dark_mode.setAttribute("fill", "#000000") //off
-                    
+
                     ligth_mode.setAttribute("fill", "#ff9700") //on
-                    
+
                     button_toggle.setAttribute("onclick", "toggle('light')");
                     break;
             }
