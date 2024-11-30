@@ -7,6 +7,7 @@
     <link rel="icon" href="img/favicon-32x32.png" type="image/x-icon">
     <title>MontCris</title>
     <link rel="stylesheet" href="css_page/styles.css">
+    <link rel="stylesheet" href="css_page/carrusel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -123,11 +124,22 @@
             </div>
         </div>
         <div class="fila" id="experiencia">
-            <p class="titulo_tarjeta">Experiencia</p>
+            <p class="titulo_tarjeta">Proyectos</p>
             <div class="contenido">
-                <div class="card">
-
-
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/this-rockin-dog-is-a-little-sketchy.jpg" alt="Imagen 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/this-rockin-dog-is-a-little-sketchy.jpg" alt="Imagen 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/this-rockin-dog-is-a-little-sketchy.jpg" alt="Imagen 3">
+                        </div>
+                    </div>
+                    <button class="carousel-btn prev">⟨</button>
+                    <button class="carousel-btn next">⟩</button>
                 </div>
             </div>
 
@@ -154,11 +166,7 @@
     </main>
     <div id="container-contacto">
 
-        <form action="">
-            <div id="formulario">
 
-            </div>
-        </form>
 
     </div>
 
@@ -181,81 +189,8 @@
 
 
     </footer>
-    <script>
-        function aplicarTemaSegunPreferencia() {
-            // Detecta si el usuario tiene preferencia por el modo oscuro
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.body.classList.add('dark_mode_page');  // Aplica modo oscuro
-            } else {
-                document.body.classList.add('light_mode_page'); // Aplica modo claro
-            }
-        }
-        
-        // Llama a la función al cargar la página
-        window.onload = aplicarTemaSegunPreferencia;
-        
-        // Detecta cuando cambia la preferencia del usuario (por si lo cambian mientras navegan)
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-            const nuevoTemaOscuro = e.matches;
-            if (nuevoTemaOscuro) {
-                document.body.classList.remove('light_mode_page');
-                document.body.classList.add('dark_mode_page');
-            } else {
-                document.body.classList.remove('dark_mode_page');
-                document.body.classList.add('light_mode_page');
-            }
-        });
-        </script>
-        
-    <script>
-        document.querySelectorAll('.fila').forEach(fila => {
-            fila.addEventListener('click', () => {
-                fila.classList.toggle('expanded');  // Alterna la clase "expanded" al hacer clic
-            });
-        });
-    </script>
-
-
-    <script>
-        const dark_mode = document.getElementById("toggle_dark_mode");
-
-        const ligth_mode = document.getElementById("toggle_light_mode");
-
-
-        function toggle(modo) {
-            var page = document.body;
-            var button_toggle = document.getElementById("toggle");
-            switch (modo) {
-                case "light":
-                    page.setAttribute("class", "dark_mode_page");
-                    dark_mode.setAttribute("fill", "#7a7a93") //on
-
-                    ligth_mode.setAttribute("fill", "#000000") //off
-
-                    button_toggle.setAttribute("onclick", "toggle('dark')");
-                    break;
-
-                case "dark":
-                    page.setAttribute("class", "light_mode_page");
-                    dark_mode.setAttribute("fill", "#000000") //off
-
-                    ligth_mode.setAttribute("fill", "#ff9700") //on
-
-                    button_toggle.setAttribute("onclick", "toggle('light')");
-                    break;
-            }
-
-        }
-        function mostrar_sidebar() {
-            const side_bar = document.querySelector('.sidebar');
-            side_bar.style.display = 'flex'
-        }
-        function esconder_sidebar() {
-            const side_bar = document.querySelector('.sidebar');
-            side_bar.style.display = 'none'
-        }
-    </script>
-
+    <script src="js/carrusel.js"></script>
+    <script src="js/page_options.js"></script>
 
 </body>
 
