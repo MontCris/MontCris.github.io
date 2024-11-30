@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     padding: 0;
     margin: 0;
@@ -506,4 +507,514 @@ footer {
 
 
 
+=======
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+#container-contacto {
+    height: 70vh;
+}
+
+
+body.dark_mode_page {
+    background-color: #1e293b;
+    footer {
+        background-color: #1e293b;
+    }
+    div.interes:hover {
+        background-color: #192334;
+    }
+
+    p {
+        color: white;
+
+    }
+
+    .texto_portada {
+        width: fit-content;
+    }
+
+    .boton {
+        background-color: #1e293b;
+    }
+    .boton:hover {
+        background-color: #192334;
+    }
+
+    .nav_inicio {
+        background-color: #1e293b;
+
+        .sidebar {
+            background-color: #111224c5;
+        }
+
+        a:hover {
+            background-color: #1e293bc5;
+        }
+
+    }
+    .fila:nth-child(1) {
+        background-color: #334155; /* Primer color */
+    }
+    
+    .fila:nth-child(2) {
+        background-color: #475569; /* Segundo color */
+    }
+    
+    .fila:nth-child(3) {
+        background-color: #64748b; /* Tercer color */
+    }
+
+    #section_modes {
+        #light_mode_section {
+            background-color: gray;
+            border-radius: 5px 0px 0px 5px;
+        }
+
+        #dark_mode_section {
+            background: linear-gradient(155deg, rgba(22, 77, 206, 1) 37%, rgba(20, 39, 90, 1) 90%);
+            border-radius: 0px 5px 5px 0px;
+        }
+    }
+
+}
+
+
+
+body.light_mode_page {
+    background-color: #26597F;
+
+    div.interes:hover {
+        background-color: #214560;
+    }
+    .boton:hover {
+        background-color: #274e6b;
+    }
+    .fila:nth-child(1) {
+        background-color: #3d588f;
+    
+        .contenido {
+            background-color: #476195;
+            display: grid;
+            grid-template-columns: 2% 96% 2%;
+            grid-template-rows: 5% 90% 5%;
+            grid-template-areas: ". . ." ". presentacion ." ". . .";
+    
+        }
+    }
+    .fila:nth-child(2) {
+        background-color: #4a9b78;
+    }
+    
+    .fila:nth-child(3) {
+        background-color: #3f8d8d;
+    }
+
+    p {
+        color: white;
+    }
+
+    .texto_portada {
+        width: fit-content;
+    }
+
+    .nav_inicio {
+        background-color: #26597F;
+
+        .sidebar {
+            background-color: #26567ec5;
+        }
+    }
+
+
+    #section_modes {
+        #light_mode_section {
+            border-radius: 5px 0px 0px 5px;
+            background: linear-gradient(155deg, rgba(247, 251, 0, 1) 30%, rgba(246, 151, 0, 1) 90%);
+        }
+
+        #dark_mode_section {
+            background-color: gray;
+            border-radius: 0px 5px 5px 0px;
+        }
+    }
+
+}
+
+
+body {
+    width: 100vw;
+    position: relative;
+    padding-bottom: 3em;
+    min-height: 100vh;
+
+
+
+    #section_modes {
+        display: flex;
+    }
+
+    #dark_mode_section {
+        float: left;
+    }
+
+
+
+}
+
+
+.nav_inicio {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+
+    ul {
+
+        overflow: hidden;
+        list-style: none;
+        display: flex;
+        width: 100%;
+        justify-content: end;
+
+        li:first-child {
+            margin-right: auto;
+        }
+
+        li {
+            height: 70px;
+
+            a {
+                height: 100%;
+                color: white;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                padding: 0 30px;
+
+
+            }
+
+            a:hover {
+                background-color: #214560;
+            }
+
+        }
+
+        .menu_button {
+            visibility: hidden;
+        }
+
+
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 20vw;
+        z-index: 999;
+        background-color: #26567ec5;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        /*backdrop-filter: blur(10px);*/
+        li {
+            width: 100%;
+        }
+
+        a {
+            width: 100%;
+        }
+    }
+
+
+
+
+
+}
+
+.fila {
+    height: 50vh;
+    width: 100%;
+    /* filas (con el tamaño definido para cada una) / columnas (con el tamaño establecido)
+    ej (los parentesis no se ocupan dentro): 10px (1era y unica fila de tamaño 10px) / 40px (1era columna con tamaño 40px) 10px (2da columna con tamaño 10px)
+ ej normal : 10px / 1fr
+    */
+    grid-template-rows: 100%;
+    grid-template-columns: 100% 0%;
+    display: grid;
+    place-items: center;
+
+    .contenido {
+        visibility: hidden;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    transition: grid-template-columns 1s;
+
+    /* las transiciones sirver para darle un tiempo para que se aplique una propiedad como en este caso grid-template*/
+}
+
+/*nth-child -> corresponde al elemento especifico que posee la el atributo antes del : , que corresponderia a la clase fila*/
+
+
+
+#descripcion {
+    grid-area: presentacion;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+
+    p {
+        text-align: center;
+        width: 100%;
+        font-size: 40px;
+        word-break: normal;
+        height: fit-content;
+    }
+}
+
+.contenido {
+    overflow-y: auto;
+    display: flex;
+    justify-content: space-around;
+
+    .card {
+        margin-top: 20px;
+        height: 200px;
+        width: 200px;
+        background-color: #ba431f;
+    }
+    .tag-section {
+        display: flex;
+        flex-wrap: wrap;  /* Permite que los tags se distribuyan en varias filas */
+        gap: 10px;        /* Espacio entre los tags */
+        max-height: 100px; /* Limita el alto inicial para mostrar solo una fila */
+        overflow: hidden; /* Oculta los tags que no caben en la primera fila */
+    }
+    
+    .tag {
+        flex: 0 1 30%; /* Cada tag ocupa un 30% del ancho del contenedor para permitir 3 tags por fila */
+        background-color: #3f8d8d;
+        color: white; /* Color del texto */
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        text-align: center;
+        margin: 5px;
+        box-sizing: border-box;
+    }
+    
+    .tag-section.expanded {
+        max-height: none; /* Cuando se expanda, mostrará todas las filas */
+    }
+    
+
+}
+
+
+
+
+.fila {
+    height: 50vh;
+    width: 100%;
+    grid-template-rows: 100%;
+    grid-template-columns: 100% 0%;
+    display: grid;
+    place-items: center;
+    transition: grid-template-columns 1s; /* Transición suave */
+}
+
+.contenido {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    transition: visibility 0.5s;
+}
+
+.fila.expanded {
+    grid-template-columns: 0% 100%; /* Expande la fila al hacer clic */
+}
+
+.fila.expanded .contenido {
+    visibility: visible; /* Muestra el contenido cuando la fila está expandida */
+}
+
+.fila .titulo_tarjeta {
+    color: white;
+    font-size: clamp(1.1rem, 5vmin, 2.8rem);
+    transition: opacity 700ms;
+}
+
+.fila.expanded .titulo_tarjeta {
+    opacity: 0; /* Oculta el título cuando la fila está expandida */
+}
+
+
+.fila p.titulo_tarjeta {
+    /* text-shadow: 1px 1px 2px black; */
+    color: white;
+
+    font-size: clamp(1.1rem, 5vmin, 2.8rem);
+    transition: opacity 700ms;
+}
+
+/*efectos con hover*/
+
+main:has(.fila:first-child:hover) .fila:not(:first-child) .contenido,
+main:has(.fila:nth-child(2):hover) .fila:not(:nth-child(2)) .contenido,
+main:has(.fila:nth-child(3):hover) .fila:not(:nth-child(3)) .contenido {
+    opacity: 0;
+}
+
+main:has(.fila:first-child:hover) .fila:not(:first-child),
+main:has(.fila:nth-child(2):hover) .fila:not(:nth-child(2)),
+main:has(.fila:nth-child(3):hover) .fila:not(:nth-child(3)) {
+
+    filter: grayscale(10%) brightness(250%) contrast(30%);
+}
+
+
+
+
+.perfil {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1f;
+    grid-template-rows: 1f 1f;
+    grid-template-areas: "foto" "boton";
+    /* background-color: #3F78A3; */
+
+}
+
+.portada {
+
+    height: 50%;
+    width: auto;
+
+    grid-area: foto;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    .texto_portada {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .foto {
+        border: 1px solid #000000;
+        border-radius: 50%;
+        height: 300px;
+        width: 300px;
+        box-shadow: 5px 14px 38px 0px rgba(0, 0, 0, 0.42);
+
+
+    }
+}
+
+
+
+
+.boton_seccion {
+    height: 50%;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    grid-area: boton;
+
+    .boton {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px #000000;
+    }
+}
+
+footer {
+    background-color: #26597F;
+    position: absolute;
+    height: 8vh;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    text-decoration: none;
+
+    #copyright {
+        color: white;
+    }
+
+    div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    div a.link_interes {
+        color: white;
+    }
+
+
+
+    div.interes {
+        justify-content: center;
+        width: 60px;
+    }
+
+
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@media (max-width: 900px) {
+    body {
+        p {
+            font-size: 15px;
+        }
+
+    }
+    #descripcion {
+        p {
+            font-size: 20px;
+        }
+    }
+
+    .sidebar {
+        min-width: 100%;
+    }
+
+    #foto {
+        width: 60%;
+    }
+
+
+
+>>>>>>> d7ed1c379ea5d21bc3424906bbe9eb1a3406b7d3
 }
